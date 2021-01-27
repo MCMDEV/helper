@@ -2,6 +2,6 @@ deploy:
   image: maven
   stage: deploy
   script:
-    - 'mvn deploy -s ci_settings.xml -P deployment'
+    - 'mvn deploy -P deployment -s ci_settings.xml'
   only:
     - master
