@@ -27,13 +27,24 @@ package me.lucko.helper.utils;
 
 import com.google.common.collect.Lists;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class CollectionUtils {
 
     @Deprecated
     public static <T> List<List<T>> divideIterable(Iterable<T> source, int subListSize) {
         return Lists.partition(Lists.newArrayList(source), subListSize);
+    }
+
+    public static <T> Collector<T, ?, Stream<T>> toShuffledStream() {
+        return Collectors.collectingAndThen(Collectors.toList(), collected -> {
+            Collections.shuffle(collected);
+            return collected.stream();
+        });
     }
 
     private CollectionUtils() {

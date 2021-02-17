@@ -4,5 +4,6 @@ version: ${project.version}
 description: ${project.description}
 main: me.lucko.helper.internal.StandalonePlugin
 website: https://github.com/lucko/helper
+api-version: 1.16
 load: STARTUP
 softdepend: [ProtocolLib, Citizens, ViaVersion]
